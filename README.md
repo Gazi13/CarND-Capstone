@@ -1,4 +1,45 @@
+
+<center><h2> Result </h2> </center>
+
+<p align="center">
+  <a href="https://youtu.be/1Q-EfKywC8s"><img src="imgs/result.gif" /><a>
+</p>
+
 This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
+
+### Project Overview
+This is the diagram of system architecture that showing the ROS nodes and topics used in the project. 
+<p align="center">
+  <img src="imgs/ros-graph.png" />
+</p>
+
+
+### Code Structure
+
+#### 1- Traffic Light Detection Node 
+<p align="center">
+  <img src="imgs/traffic-light.png" />
+</p>
+
+This node is responsible for detecting and classifying traffic lights. If the traffic light is identified as red then it finds the closest waypoint to that red light's stop line and publishes the index of that waypoint to the /traffic_waypoint topic.
+
+#### 2- Waypoint_Updater Node 
+<p align="center">
+  <img src="imgs/waypoint-updater-ros-graph.png" />
+</p>
+
+This node publishes the next 25 waypoints that are closest to vehicle's current location and are ahead of the vehicle. This node also considers obstacles and traffic lights to set the velocity for each waypoint.
+
+#### 3- DBW Node 
+<p align="center">
+  <img src="imgs/dbw-node-ros-graph.png" />
+</p>
+
+DBW node which publishes the vehicle's throttle, steering and brakes commands based on current velocity and target velocity provided by “Waypoint Follower node” .
+
+
+---
+
 
 Please use **one** of the two installation options, either native **or** docker installation.
 
